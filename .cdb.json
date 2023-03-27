@@ -1,0 +1,11 @@
+{
+    "type": "MOD",
+    "name": "bug_command",
+    "title": "bug command",
+    "license": "AGPL-3.0-or-later",
+    "media_license": "CC-BY-SA-4.0",
+    "repo": "https://github.com/fluxionary/minetest-bug_command.git",
+    "website": "https://github.com/fluxionary/minetest-bug_command",
+    "issue_tracker": "https://github.com/fluxionary/minetest-bug_command/issues",
+    "short_description": "adds a command that submits a bug report to a github repo."
+}

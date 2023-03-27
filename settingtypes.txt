@@ -1,0 +1,4 @@
+# e.g. fluxionary/minetest-fluxtest
+bug_command:github_repo (github repo) string
+
+bug_command:github_token (github authentication token) string
