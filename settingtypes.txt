@@ -2,3 +2,5 @@
 bug_command:github_repo (github repo) string
 
 bug_command:github_token (github authentication token) string
+
+bug_command:required_privilege (required privilege to send a bug) string

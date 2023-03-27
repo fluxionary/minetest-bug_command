@@ -20,6 +20,7 @@ if not repo then
 end
 
 local f = string.format
+local S = bug_command.S
 
 local function build_message(name, param)
 	local parts = param:split("%s+", false, -1, true)
@@ -80,14 +81,22 @@ local function make_callback(name)
 	end
 end
 
+local privs
+if bug_command.settings.required_privilege then
+	privs = { [bug_command.settings.required_privilege] = true }
+end
+
 minetest.register_chatcommand("bug", {
+	params = "<bug report>",
+	description = S("submit a bug report"),
+	privs = privs,
 	func = function(name, param)
 		if param:gsub("%s+", "") == "" then
-			return false, "invalid bug report"
+			return false, S("invalid bug report")
 		end
 
 		local message = build_message(name, param)
 		http.fetch(build_request(message), make_callback(name))
-		return true, "sending bug request..."
+		return true, S("sending bug request...")
 	end,
 })
