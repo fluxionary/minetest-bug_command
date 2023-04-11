@@ -2,7 +2,11 @@ local private_state = ...
 local http = private_state.http
 
 local f = string.format
+local F = minetest.formspec_escape
 local S = bug_command.S
+local function FS(...)
+	return F(S(...))
+end
 
 local token = bug_command.settings.github_token
 local repo = bug_command.settings.github_repo
@@ -35,9 +39,9 @@ end
 local function build_formspec(data)
 	local parts = {
 		"size[8.5,10;]",
-		f("button[6,0.95;2.5,0.5;details;%s]", S("details")),
+		f("button[6,0.95;2.5,0.5;details;%s]", FS("details")),
 		"tablecolumns[color;text;text]",
-		f("table[0,0.7;5.75,8.35;inbox;#999,%s,%s", S("id"), S("title")),
+		f("table[0,0.7;5.75,8.35;inbox;#999,%s,%s", FS("id"), FS("title")),
 	}
 	for _, issue in ipairs(data) do
 		local id = issue.id
@@ -50,7 +54,7 @@ local function build_formspec(data)
 		else
 			color = "#F00"
 		end
-		table.insert(parts, f(",%s,%s,%s", color, id, title))
+		table.insert(parts, f(",%s,%s,%s", color, F(id), F(title)))
 	end
 	table.insert(parts, "]")
 
