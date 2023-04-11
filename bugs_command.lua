@@ -44,7 +44,7 @@ local function build_formspec(data)
 		f("table[0,0.7;5.75,8.35;inbox;#999,%s,%s", FS("id"), FS("title")),
 	}
 	for _, issue in ipairs(data) do
-		local id = issue.id
+		local number = issue.number
 		local title = issue.title
 		local color
 		if issue.state == "open" then
@@ -54,7 +54,7 @@ local function build_formspec(data)
 		else
 			color = "#F00"
 		end
-		table.insert(parts, f(",%s,%s,%s", color, F(id), F(title)))
+		table.insert(parts, f(",%s,%s,%s", color, F(number), F(title)))
 	end
 	table.insert(parts, "]")
 
