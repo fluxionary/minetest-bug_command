@@ -651,5 +651,6 @@ stds.bug_command = {
 	},
 	read_globals = {
 		"fmod",
+		"futil",
 	},
 }
