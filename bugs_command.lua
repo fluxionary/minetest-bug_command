@@ -12,7 +12,7 @@ https://docs.github.com/en/rest/issues/issues#create-an-issue
 ]]
 local function build_report_request(page)
 	local param_table = {
-		page = page or 1,
+		page = tostring(page or 1),
 	}
 	local params = {}
 	for key, value in pairs(param_table) do
