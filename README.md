@@ -25,3 +25,5 @@ as a command line argument:
 ```
 /bug blah blah blah
 ```
+
+you can read bugs via the `/bugs` command.
